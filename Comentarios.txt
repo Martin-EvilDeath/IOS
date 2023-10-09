@@ -1,0 +1,5 @@
+1.- we learned how to develop an application.
+2.- user validation was learned.
+3.- we learned how to design an application.
+4.- user interaction and the welcome screen.
+5.- validation of the existing user.
