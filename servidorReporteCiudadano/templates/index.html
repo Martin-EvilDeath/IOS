@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reportes</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            padding: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-4">Reportes</h1>
+        
+        <form action="/ver_reportes" method="get" class="mt-4">
+            <div class="form-row">
+                <div class="col-md-2 mb-3">
+                    <label for="filtro_fecha">Filtrar por Fecha:</label>
+                    <input type="date" class="form-control" id="filtro_fecha" name="filtro_fecha">
+                </div>
+                <div class="col-md-2 mb-3">
+                    <label for="filtro_hora">Filtrar por Hora:</label>
+                    <input type="time" class="form-control" id="filtro_hora" name="filtro_hora">
+                </div>
+                <div class="col-md-2 mb-3">
+                    <label for="filtro_estado">Filtrar por Estado:</label>
+                    <select class="form-control" id="filtro_estado" name="filtro_estado">
+                        <option value="">Todos</option>
+                        <option value="En revisión">En revisión</option>
+                        <option value="Atendido">Atendido</option>
+                    </select>
+                </div>
+                <div class="col-md-2 mb-3">
+                    <label for="filtro_zona">Filtrar por Zona:</label>
+                    <input type="text" class="form-control" id="filtro_zona" name="filtro_zona">
+                </div>
+                <div class="col-md-2 mb-3">
+                    <label for="filtro_tipo">Filtrar Tipo de Reporte:</label>
+                    <input type="text" class="form-control" id="filtro_tipo" name="filtro_tipo">
+                </div>
+                <div class="col-md-2 mb-3">
+                    <label>&nbsp;</label>
+                    <button type="submit" class="btn btn-primary btn-block">Filtrar</button>
+                </div>
+            </div>
+        </form>
+
+        <table class="table table-bordered table-striped mt-4">
+            <thead class="thead-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>Tipo de Reporte</th>
+                    <th>Descripción</th>
+                    <th>Coordenadas</th>
+                    <th>Imagen</th>
+                    <th>Fecha y Hora</th>
+                    <th>Estado</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for reporte in reportes %}
+                <tr>
+                    <td>{{ reporte[0] }}</td>
+                    <td>{{ reporte[1] }}</td>
+                    <td>{{ reporte[2] }}</td>
+                    <td>{{ reporte[3] }}</td>
+                    <td><img src="{{ reporte[4] }}" alt="Imagen" class="img-fluid"></td>
+                    <td>{{ reporte[5] }}</td>
+                    <td>{{ reporte[6] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

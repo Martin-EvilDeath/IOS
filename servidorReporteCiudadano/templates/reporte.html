@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Detalle del Registro</title>
+</head>
+<body>
+
+<div class="container mt-4">
+    <h2>Detalle del Registro</h2>
+    <table class="table table-bordered">
+        <tbody>
+            <tr>
+                <th>Lugar</th>
+                <td>{{ reporte[1] }}</td>
+            </tr>
+            <tr>
+                <th>Fecha y Hora</th>
+                <td>{{ reporte[5] }}</td>
+            </tr>
+            <tr>
+                <th>Descripción</th>
+                <td>{{ reporte[2] }}</td>
+            </tr>
+            <tr>
+                <th>Imagen</th>
+                <td><img src="{{ reporte[4] }}" alt="Imagen" style="max-width: 100px;"></td>
+            </tr>
+            <tr>
+                <th>Tipo de Evento</th>
+                <td>{{ reporte[0] }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>
